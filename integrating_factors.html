@@ -35,15 +35,16 @@ To begin, we’ll show that an equality of the form
 $$
 \frac{df}{dt} g(t) + f(t) \frac{dg}{dt} = Q(t) g(t)
 $$
-with \(g(t)\) and \(Q(t)\) as known functions can be solved for an unknown function \(f(t)\). The differentiation product rule allows us to rewrite the left side of the equality as
+with \(g(t)\) and \(Q(t)\) as known functions can be solved for an unknown function \(f(t)\). The product rule 
+for differentiation allows us to rewrite the left side of the equality as
 $$
 \frac{df}{dt} g(t) + f(t) \frac{dg}{dt}  = \frac{d}{dt}[f(t)g(t)]
 $$
-where \(t\) is the single independent variable. This allows us to cast the original equality as 
+where \(t\) is the single independent variable. Using the product rule, we cast the original equality as 
 $$
 \frac{d}{dt}[f(t)g(t)] = Q(t) g(t)
 $$
-Applying the Fundamental Theorem of Calculus of Calculus to integrate both sides, 
+Finally, applying the Fundamental Theorem of Calculus of Calculus to integrate both sides, 
 $$
 \begin{align}
 \int \frac{d}{dt}[f(t)g(t)] &= \int Q(t) g(t) dt \\
@@ -51,27 +52,33 @@ f(t)g(t) &= \int Q(t) g(t) dt \\
 f(t) &= \frac{1}{g(t)} \int Q(t) g(t) dt
 \end{align}
 $$
-Since \(g(t)\) and \(Q(t)\) are known functions of the independent variable \(t\), this form of the unknown \(f(t)\) is solvable.
+Since \(g(t)\) and \(Q(t)\) are known functions of the independent variable \(t\), the unknown \(f(t)\) is a 
+solvable through integration by parts.
 </p>
 
 <h3 style="text-align: left;"> Casting an ODE into the Standard Form </h3>
 <p>
-Given the above proof for finding the unknown \(f(t)\), the question becomes whether an ODE can be algebraically manipulated into the form
+Given the above proof for finding the unknown \(f(t)\), the question of whether or not to use the integrating 
+factor method becomes a dependent on if the ODE can be algebraically manipulated into the form
 $$
 \frac{df}{dt} + P(t)f(t) = Q(t)
 $$
-If we can cast the ODE in this way, the goal is to find a multiplicative factor that can be used across the entire equality, \(g(t)\), such that 
+If we can cast the ODE in this way, the goal is to find a multiplicative factor that can be used across the entire 
+equality, \(g(t)\), such that 
 $$
 \frac{df}{dt} g(t) + f(t) \frac{dg}{dt} = Q(t) g(t)
 $$
-for \(\frac{dg}{dt} = P(t)g(t)\). This offsets the goal to solving the differential equation \(\frac{dg}{dt} = P(t)g(t)\), which has a direct solution of \(g(t) = e^{\int P(t) dt}\). With the integrating factor, \(g(t)\), 
+for \(\frac{dg}{dt} = P(t)g(t)\). This further offsets the goal to one of solving the differential equation \(\frac{dg}{dt} = P(t)g(t)\), 
+which has a solution of \(g(t) = e^{\int P(t) dt}\). With the integrating factor, \(g(t)\), we may write the algebraically manipulated
+equality as 
 $$
 \begin{align}
 g(t)\frac{df}{dt} + g(t)P(t)f(t) &= g(t)Q(t) \\
 e^{\int P(t) dt} \frac{df}{dt} + P(t) e^{\int P(t) dt} f(t) &= e^{\int P(t) dt} Q(t)
 \end{align}
 $$ 
-This is the form required to apply our proof of solving for the unknown function \(f(t)\). Therefore, recasting the left side of our equality as
+This is the form required to apply our proven method of solving for the unknown function \(f(t)\). Therefore, recasting 
+the left side of our equality as
 $$
 e^{\int P(t) dt} \frac{df}{dt} + P(t) e^{\int P(t) dt} f(t) = \frac{d}{dt}[e^{\int P(t) dt} f(t)]
 $$
