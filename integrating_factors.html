@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <title>2/16/25: Integrating Factors</title>
 </head>
 <body>
@@ -11,5 +12,30 @@
         title="Home"
     >Home</a>
     <h1>2/16/25: Solving ODEs with integrating factors</h1>
+    <p>
+Solving ODEs using the Integrating Factor Method
+Ordinary differential equations (ODEs) are equations that include an unknown function of a single independent variable and its derivatives. The equation relates the rate of change to the unknown function itself and the goal is to use mathematical techniques to simplify the equation form and solve for the unknown function. This blog will be about an analytical method that uses an integrating factor to simplify the equation into a form friendly to direct integration. 
+
+Using the Differentiation Product Rule
+To begin, we’ll show that an equality of the form 
+$$
+\frac{df}{dt} g(t) + f(t) \frac{dg}{dt} = Q(t) g(t)
+$$
+with $g(t)$ and $Q(t)$ as known functions can be solved for an unknown function $f(t)$. The differentiation product rule allows us to rewrite the left side of the equality as
+$$
+\frac{df}{dt} g(t) + f(t) \frac{dg}{dt}  = \frac{d}{dt}[f(t)g(t)]
+$$
+where $t$ is the single independent variable. This allows us to cast the original equality as 
+$$
+\frac{d}{dt}[f(t)g(t)] = Q(t) g(t)
+$$
+Applying the Fundamental Theorem of Calculus of Calculus to integrate both sides, 
+$$
+\int \frac{d}{dt}[f(t)g(t)] &= \int Q(t) g(t) dt \\
+f(t)g(t) &= \int Q(t) g(t) dt \\
+f(t) &= \frac{1}{g(t)} \int Q(t) g(t) dt
+$$
+Since $g(t)$ and $Q(t)$ are known functions of the independent variable $t$, this form of the unknown $f(t)$ is solvable.
+    </p>
 </body>
 </html>
