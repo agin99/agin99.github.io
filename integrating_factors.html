@@ -18,8 +18,8 @@
         href="https://agin99.github.io/index.html"
         title="Home"
     >Home</a>
-    <h1>2/16/25: Solving ODEs with integrating factors</h1>
-    <div style="max-width: 600px; margin: 0 auto;">
+    <h1 style="text-align: left;">2/16/25: Solving ODEs with integrating factors</h1>
+    <div style="max-width: 600px; margin: 0 auto; text-align: left;">
         <p>
 <h4> ODEs using the Integrating Factor Method </h4>
 <p>
@@ -31,6 +31,7 @@ friendly to direct integration.
 </p>
 
 <h4> Using the Differentiation Product Rule </h4>
+<p>
 To begin, we’ll show that an equality of the form 
 $$
 \frac{df}{dt} g(t) + f(t) \frac{dg}{dt} = Q(t) g(t)
@@ -51,9 +52,11 @@ f(t)g(t) &= \int Q(t) g(t) dt \\
 f(t) &= \frac{1}{g(t)} \int Q(t) g(t) dt
 \end{align}
 $$
-Since \(g(t)\) and \(Q(t)\) are known functions of the independent variable \(t\), this form of the unknown \(f(t)\) is solvable. 
+Since \(g(t)\) and \(Q(t)\) are known functions of the independent variable \(t\), this form of the unknown \(f(t)\) is solvable.
+</p>
 
 <h4> Casting an ODE into the Standard Form </h4>
+<p>
 Given the above proof for finding the unknown \(f(t)\), the question becomes whether an ODE can be algebraically manipulated into the form
 $$
 \frac{df}{dt} + P(t)f(t) = Q(t)
@@ -85,8 +88,10 @@ e^{\int P(t) dt} f(t) &= \int e^{\int P(t) dt} Q(t) dt \\
 f(t) &= \frac{1}{e^{\int P(t) dt}} \int e^{\int P(t) dt} Q(t) dt
 \end{align}
 $$
+</p>
 
 <h4> Conclusion </h4>
+<p>
 By using an integrating factor \(g(t)\), often written as \(µ(t)\), we’ve solved the ODE for the unknown function \(f(t)\). Therefore, if dealing with an ODE that can be algebraically cast as 
 $$
 \frac{df}{dt} + P(t)f(t) = Q(t)
