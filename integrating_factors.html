@@ -21,10 +21,16 @@
     <h1>2/16/25: Solving ODEs with integrating factors</h1>
     <div style="max-width: 600px; margin: 0 auto;">
         <p>
-Solving ODEs using the Integrating Factor Method
-Ordinary differential equations (ODEs) are equations that include an unknown function of a single independent variable and its derivatives. The equation relates the rate of change to the unknown function itself and the goal is to use mathematical techniques to simplify the equation form and solve for the unknown function. This blog will be about an analytical method that uses an integrating factor to simplify the equation into a form friendly to direct integration. 
+<h4> ODEs using the Integrating Factor Method </h4>
+<p>
+Ordinary differential equations (ODEs) are equations that include an unknown function of a single independent 
+variable and its derivatives. The equation relates the rate of change to the unknown function itself and the 
+goal is to use mathematical techniques to simplify the equation form and solve for the unknown function. This 
+blog will be about an analytical method that uses an integrating factor to simplify the equation into a form 
+friendly to direct integration. 
+</p>
 
-Using the Differentiation Product Rule
+<h4> Using the Differentiation Product Rule </h4>
 To begin, we’ll show that an equality of the form 
 $$
 \frac{df}{dt} g(t) + f(t) \frac{dg}{dt} = Q(t) g(t)
@@ -47,16 +53,16 @@ f(t) &= \frac{1}{g(t)} \int Q(t) g(t) dt
 $$
 Since \(g(t)\) and \(Q(t)\) are known functions of the independent variable \(t\), this form of the unknown \(f(t)\) is solvable. 
 
-Casting an ODE into the Standard Form
+<h4> Casting an ODE into the Standard Form </h4>
 Given the above proof for finding the unknown \(f(t)\), the question becomes whether an ODE can be algebraically manipulated into the form
 $$
 \frac{df}{dt} + P(t)f(t) = Q(t)
 $$
 If we can cast the ODE in this way, the goal is to find a multiplicative factor that can be used across the entire equality, \(g(t)\), such that 
 $$
-\frac{df}{dt} g(t) + f(t) \frac{dg}{dt} = Q(t) g(t), for \frac{dg}{dt} = P(t)g(t) 
+\frac{df}{dt} g(t) + f(t) \frac{dg}{dt} = Q(t) g(t)
 $$
-This offsets the goal to solving the differential equation \(\frac{dg}{dt} = P(t)g(t)\), which has a direct solution of \(g(t) = e^{\int P(t) dt}\). With the integrating factor, \(g(t)\), 
+for \(\frac{dg}{dt} = P(t)g(t)\). This offsets the goal to solving the differential equation \(\frac{dg}{dt} = P(t)g(t)\), which has a direct solution of \(g(t) = e^{\int P(t) dt}\). With the integrating factor, \(g(t)\), 
 $$
 \begin{align}
 g(t)\frac{df}{dt} + g(t)P(t)f(t) &= g(t)Q(t) \\
@@ -80,7 +86,7 @@ f(t) &= \frac{1}{e^{\int P(t) dt}} \int e^{\int P(t) dt} Q(t) dt
 \end{align}
 $$
 
-Conclusion
+<h4> Conclusion </h4>
 By using an integrating factor \(g(t)\), often written as \(µ(t)\), we’ve solved the ODE for the unknown function \(f(t)\). Therefore, if dealing with an ODE that can be algebraically cast as 
 $$
 \frac{df}{dt} + P(t)f(t) = Q(t)
