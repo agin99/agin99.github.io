@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+          tex: {
+            packages: { '[+]': ['ams'] }  // This adds AMS packages
+          }
+        };
+    </script>
+    <title>Spin Angular Momentum of an Electron (2/17/25)</title>
+</head>
+<body>
+    <a 
+        href="https://agin99.github.io/index.html"
+        title="Home"
+    >Home</a>
+<h1 style="text-align: left;">Spin Angular Momentum of an Electron (2/17/25)</h1>
+<div style="max-width: 600px; margin: 0 auto;">
+<h3 style="text-align: left;"> Empirically Arriving at Spin Angular Momentum </h3>
+<p>
+Spin angular momentum is best thought of as the internal angular momentum of a particle. The best 
+way to illustrate this idea is through the experiment that led to an empirical discovery of spin. 
+Researchers constructed a system such that the measurement of orbital angular momentum 
+\(L_{x}\), \(L_{y}\), and \(L_{z}\) would yield zero. However, a measurement of the angular momentum 
+about the z-axis yielded \(\pm \frac{hbar}{2}\). This led to adding a component for spin angular 
+momentum to the total angular momentum, \(\vec{J}\) of a system such that 
+$$
+\vec{J} = \vec{L} + \vec{S} 
+$$
+where \(\vec{L}\) is the orbital angular momentum and \(\vec{S}\) is the spin angular momentum. Given 
+that orbital angular momentum has three components \(L_{x}\), \(L_{y}\), and \(L_{z}\) we want to find 
+the corresponding components of the spin angular momentum \(S_{x}\), \(S_{y}\), and \(S_{z}\) and the 
+amount of components necessary for describing the electron's wave function.    
+</p>
+
+<h3 style="text-align: left;"> Spin Angular Momentum Operators </h3>
+<p>
+In taking advantage of the following commutation relation of angular momentum, orbital angular momentum, 
+and spin angular momentum 
+$$
+[J_{i}, J_{j}] &= i \hbar \sum_{k} \epsilon_{ijk} J_{k} \\
+&= [L_{i}, L_{j}] + [S_{i}, S_{j}]
+$$
+Given the orbital angular momentum commutation relation \([L_{i}, L_{j}] = i \hbar \sum_{k} \epsilon_{ijk} L_{k}\), 
+it’s clear that 
+$$
+[S_{i}, S_{j}] = i \hbar \sum_{k} \epsilon_{ijk} S_{k}
+$$
+which is the same form as the commutation relation of the angular momentum \vec{J}. While the angular momentum 
+matrices in \(J_{x}, J_{y}\), and \(J_{z}\) are infinite dimensional, we know they are block diagonal with 
+each \((2j + 1) \times (2j + 1)\) obeying the commutation relation of \([S_{i}, S_{j}]\). With this connection 
+between the structure of each block matrix and the spin angular momentum operators, the remaining step is to select 
+one of the block matrices of the infinite set that sit on the diagonal. For this selection, we use our empirically 
+measured spin angular momentum about the z-axis of \(\pm \frac{\hbar}{2}\) and match it to the block matrix related 
+to \(j = \frac{1}{2}\) in units of \(\hbar\). Selecting for the equivalent angular momentum block matrices 
+corresponding to \(j = \frac{1}{2}\) across \(J_{x}\), \(J_{y}\), and \(J_{z}\), we find the each spin angular momentum 
+operator is a \(2 \times 2\) dimensional matrix 
+$$
+S_{x} = \frac{\hbar}{2} \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}, S_{y} = \frac{\hbar}{2} 
+\begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}, S_{z} = \frac{\hbar}{2} \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
+$$    
+</p>
+
+<h3 style="text-align: left;"> Spinor </h3>
+<p>
+The \(2 \times 2\) dimensionality of the \(\vec{S}\) suggests that the wave function of an electron, in 
+the coordinate basis and about the z-axis, should have two components 
+$$
+\begin{align}
+\psi &= \begin{pmatrix} \psi_{+}(x,y,z) \\ \psi_{-}(x,y,z) \end{pmatrix} \\
+&\equiv \psi_{+} \begin{pmatrix} 1 \\ 0 \end{pmatrix} + \psi_{-} \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+\end{align}
+$$
+where \(\psi_{+}\), \(\psi_{-}\) are the amplitudes of each eigenstate \(\chi_{+} = 
+\begin{pmatrix} 1 \\ 0 \end{pmatrix}\) and \(\chi_{-} = \begin{pmatrix} 0 \\ 1 \end{pmatrix}\) with 
+an eigenvalues of \(\frac{\hbar}{2}\) and \(\frac{-\hbar}{2}\), respectively. By projecting the spin 
+operators onto the vector \(\hat{n}\), 
+$$
+\begin{align}
+\hat{n} \cdot \vec{S} = n_{x} S_{x} + n_{y} S_{y} + n_{z} S_{z} 
+\end{align}
+$$
+solving the eigenvalue problem of the resulting matrix will yield the eigenstates 
+$$
+\begin{align} 
+|\hat{n} +\rangle &= \begin{pmatrix} \cos(\frac{\theta}{2}) e^{-\frac{i \phi}{2}} \\ \sin(\frac{\theta}{2}) e^{\frac{i \phi}{2}} \end{pmatrix} \\ 
+|\hat{n} -\rangle &= \begin{pmatrix} -\sin(\frac{\theta}{2}) e^{-\frac{i \phi}{2}} \\ \cos(\frac{\theta}{2}) e^{\frac{i \phi}{2}} \end{pmatrix}
+\end{align}
+$$
+These two possible eigenstates are often called spin up and spin down.    
+</p>
+
+<h3 style="text-align: left;"> Pauli Matrices </h3>
+<p>
+The form of the operators \(S_{x}\), \(S_{y}\), and \(S_{z}\), we simplify the set of operators by 
+introducing a linearly independent set of matrices called the Pauli matrices \(\vec{\sigma}\) which 
+is defined by the equality
+$$
+\vec{S} = \frac{\hbar}{2} \vec{\sigma} 
+$$
+or 
+$$
+\sigma_{x} = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}, \sigma_{y} = \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}, 
+\sigma_{z} = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
+$$
+For purposes of completing the construction of a basis in the \(2 \times 2\) vector space we add 
+$$
+\sigma_{0} = I
+$$
+These matrices have many useful properties however for the remainder of this blog we’ll focus on the property
+$$
+(\hat{n} \cdot \vec{\sigma})^{2} = I 
+$$
+</p>
+
+<h3 style="text-align: left;"> Framing the Rotation Operator </h3>
+<p>
+The rotation operator is U[R(\vec{\theta}] = exp(-\frac{i \vec{\theta} \cdot \vec{S}}{\hbar})\). 
+This operator generates a finite rotation \(\theta \hat{\theta}\) about the chosen \(\hat{n}\) axis. 
+Since \(\vec{S} = \frac{\hbar}{2} \vec{\sigma}\), the rotation operator can be rewritten as 
+$$
+\begin{align}
+U[R(\vec{\theta})] &= exp(-i\frac{\vec{\theta} \cdot \vec{\sigma}}{2}) \\
+&= exp[-i(\frac{\theta}{2}) \hat{\theta} \cdot \vec{\sigma}] 
+\end{align}
+$$
+Using the power series expansion of \(e^{x}\), 
+$$
+\begin{align}
+exp[-i(\frac{\theta}{2}) \hat{\theta} \cdot \vec{\sigma}] &= \sum_{n=0}^{\infty} (-\frac{i \theta}{2})^{n} \frac{1}{n!}(\hat{\theta} \cdot \vec{\sigma})^{n} 
+&= I + (-frac{i \theta}{2}) \hat{\theta} \cdot \vec{\sigma} + \frac{1}{2!}(-frac{i \theta}{2})^{2} (\hat{\theta} \cdot \vec{\sigma})^{2} + \frac{1}{3!}(-frac{i \theta}{2})^{3} (\hat{\theta} \cdot \vec{\sigma})^{3} + … 
+\end{align}
+$$      
+</p>
+
+<h3 style="text-align: left;"> The Rotation Operator in Closed Form </h3>
+<p>
+Ordinarily, this would be intractable given that we’re dealing with increasing powers of  
+infinite-dimensional spaces in the expansion. However, the property \((\hat{n} \cdot \vec{\sigma})^{2} = I\) 
+allows us to reduce this into a sum of even and odd power coefficients. For \((\hat{n} \cdot \vec{\sigma})^{n}\) 
+an odd \(n\) reduces to 
+$$
+\((\hat{n} \cdot \vec{\sigma})^{n}\) = \((\hat{n} \cdot \vec{\sigma})(\hat{n} \cdot \vec{\sigma})^{n - 1}\)
+$$ 
+Given the assumption that \(n\) is odd, \(n = 2k + 1\) and \(n - 1 = 2k\) which means we can rewrite our above representation as 
+$$
+\((\hat{n} \cdot \vec{\sigma})^{n}\) = \((\hat{n} \cdot \vec{\sigma})(\hat{n} \cdot \vec{\sigma})^{2k}\) \\ 
+$$
+but \((\hat{n} \cdot \vec{\sigma})^{2k} = I\). Therefore, for an odd \(n\), 
+$$
+\begin{align}
+(\hat{n} \cdot \vec{\sigma})^{n} &= (\hat{n} \cdot \vec{\sigma})I
+&= (\hat{n} \cdot \vec{\sigma})
+\end{align}
+$$ 
+and an even \(n\), 
+$$
+\((\hat{n} \cdot \vec{\sigma})^{n}\) = I
+$$
+As a direct result, the power series expansion can be written in the form
+$$
+\begin{align}
+exp[-i(\frac{\theta}{2}) \hat{\theta} \cdot \vec{\sigma}] &= I + (-frac{i \theta}{2}) \hat{\theta} \cdot 
+\vec{\sigma} + \frac{1}{2!}(-frac{i \theta}{2}) (\hat{\theta} \cdot \vec{\sigma})^{2} + \frac{1}{3!}(-frac{i \theta}{3}) 
+(\hat{\theta} \cdot \vec{\sigma})^{3} + … \\ 
+&= \cos(\frac{\theta}{2})I - i \sin(\frac{\theta}{2}) \hat{\theta} \cdot \vec{\sigma}
+\end{align}
+$$
+which takes advantage of similar logic used to derive Euler’s identity of \(e^{i \theta/2} = \cos(\frac{\theta}{2}) 
++ i\sin(\frac{\theta}{2})\). A closed form representation of the rotation operator in the spin basis allows us 
+to confidently rotate the entire system by a finite angle \(\vec{\theta}\), while maintaining the inter-system 
+properties (because \(U[R]\) is a unitary matrix).     
+</p>
+
+<h3 style="text-align: left;"> Conclusion </h3>
+<p>
+Spin angular momentum of an electron can be measured in an arbitrary direction using a linear combination 
+of the linearly independent Pauli matrices. These operators act on spinors which are two-component wave 
+functions with amplitudes \(\psi_{\pm}\) and eigenvalues \(\pm \frac{\hbar}{2}\). These two quantum mechanical 
+objects allow us to operate in the spin angular momentum basis and figure out the spin angular momentum 
+contribution to an electrons overall angular momentum \(\vec{J} = \vec{L} + \vec{S}\).
+</p>
+</div>
+</body>
+</html>
