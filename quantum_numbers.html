@@ -20,127 +20,280 @@
     >Home</a>
 <h1 style="text-align: left;">Quantum Numbers n, l, m (4/21/25)</h1>
 <div style="max-width: 600px; margin: 0 auto;">
-<h3 style="text-align: left;"> Quantum Numbers n, l, m </h3>
-<p>
-    \section{Introduction}
-    The purpose of this blog is to derive the principal \(n\), orbital \(l\), and 
-    magnetic \(m\) quantum numbers from a rotationally invariant eigenvalue problem 
-    and to show how they underpin atomic orbitals. We assume that the reader has prerequisite 
-    knowledge of operator commutators, ladder operators, and eigenvalue basics. In Section 2 
-    we setup the canonical particle in a box to derive \(n\); in Section 3 we introduce the 
-    notion of generators and symmetry through an example of translational invariance; in Section 4 
-    we derive the rotationally invariant wavefunction; in Section 5 we relate \(n\), \(l\), and \(m\) 
-    to each other.
-</p>
+<h2 style="text-align: left;"> Quantum Numbers n, l, m </h2>
+<h3 style="text-align: left;"> Introduction </h3>
+    <p>
+        The purpose of this blog is to derive the principal \(n\), orbital \(l\), and 
+        magnetic \(m\) quantum numbers from a rotationally invariant eigenvalue problem 
+        and to show how they underpin atomic orbitals. We assume that the reader has prerequisite 
+        knowledge of operator commutators, ladder operators, and eigenvalue basics. In Section 1 
+        we setup the canonical particle in a box to derive \(n\); in Section 2 we introduce the 
+        notion of generators and symmetry through an example of translational invariance; in Section 3 
+        we derive the rotationally invariant wavefunction; in Section 4 we relate \(n\), \(l\), and \(m\) 
+        to each other.
+    </p>
 
-<h3 style="text-align: left;"> Infinite Potential Well </h3>
-<p>
-    <h4>Infinite Potential Well</h4>
-    The total energy in a system is the sum of it's kinetic and potential energy
-    \begin{equation}
-        E = K + V    
-    \end{equation}
-    In the case of a free particle moving through a system, we can think of the particle’s capacity to move through space in terms of the available kinetic energy \(K = E - V\). When the potential energy barrier is infinite, no finite amount of total energy (and therefore no finite kinetic energy) can ever exceed it. As a result, a free particle cannot penetrate or cross an infinite potential boundary. This situation is what defines an infinite potential well
-    \begin{equation}
-        V(x) =
-    \begin{cases}
-        0, & \lvert x\rvert < \dfrac L2,\\[6pt]
-        \infty, & \lvert x\rvert \ge \dfrac L2.
-    \end{cases}
-    \end{equation}
+<h3 style="text-align: left;"> 1. Infinite Potential Well </h3>
+    <p>
+        <h4>Infinite Potential Well</h4>
+        The total energy in a system is the sum of it's kinetic and potential energy
+        \begin{equation}
+            E = K + V    
+        \end{equation}
+        In the case of a free particle moving through a system, we can think of the particle’s capacity to move through space in terms of the available kinetic energy \(K = E - V\). When the potential energy barrier is infinite, no finite amount of total energy (and therefore no finite kinetic energy) can ever exceed it. As a result, a free particle cannot penetrate or cross an infinite potential boundary. This situation is what defines an infinite potential well
+        \begin{equation}
+            V(x) =
+        \begin{cases}
+            0, & \lvert x\rvert < \dfrac L2,\\[6pt]
+            \infty, & \lvert x\rvert \ge \dfrac L2.
+        \end{cases}
+        \end{equation}
+        
+        <h4>Derivation of the Principal Quantum Number \(n\)</h4>
+        The derivation of the principal quantum number leverages the continuity requirement to construct a system of two equations and two unknowns. We start with the second order differential equation 
+        \begin{equation}
+            \frac{d^{2} \psi}{dx^2} + \frac{2m}{\hbar^2}(E - V)\psi = 0
+        \end{equation}
+        Define \(\psi_{II}\) as the region where \(V(x) = 0\) and \(\psi_{I}, \psi_{III}\) as regions where \(V(x) = \infty\) and set up the system
+        \begin{align}
+            \frac{d^{2}}{dx^2}\psi_{I} + \frac{2m}{\hbar^2}(E - V)\psi_{I} = 0 \\
+            \frac{d^{2}}{dx^2}\psi_{II} + \frac{2m}{\hbar^2}(E)\psi_{II} = 0 \\
+            \frac{d^{2}}{dx^2}\psi_{III} + \frac{2m}{\hbar^2}(E - V)\psi_{III} = 0
+        \end{align}
+        If we define \(k = \sqrt{\frac{2mE}{\hbar^2}}\), the solution form of \(\psi_{II}\) is 
+        \begin{align}
+        \psi_{II} = Ae^{ikx} + Be^{-ikx}
+        \end{align}
+        Applying the continuity constraint at the boundaries of quadrant II and solving for \(k\) the trigonometric identity for \(\sin\) in terms of the \(e\)
+        \begin{align}
+        e^{-ikL} - e^{ikL} = -2i sin(kL) = 0
+        \end{align}
+        holds if \(k = \frac{n \pi}{L}\) for \(n = 0, \pm 1, \pm 2, \ldots\). Plugging in for \(k\) and using a known trigonometric solution form for \(\psi_{II}\) the solution for the wave function at \(x\) given an integral value \(n\) is 
+        \begin{align}
+        \psi_{n} &= (\frac{2}{L})^{\frac{1}{2}} \cos{(\frac{n \pi x}{L})} &\quad n &= 1, 3, 5, 7, \ldots \\
+        &= (\frac{2}{L})^{\frac{1}{2}} \sin{(\frac{n \pi x}{L})} &\quad n &= 2, 4, 6, \ldots \\
+        E_{n} &= \frac{\hbar^2 k_{n}^2}{2m} = \frac{\hbar^2 \pi^2 n^2}{2m L^2} 
+        \end{align}
+        From \(E_{n}\), the principal quantum number, \(n\), directly labels the total energy level of our system.
+    <p>
+<h3 style="text-align: left;"> 2. An Introduction to Invariance: Translational Invariance \& Conservation of Momentum </h3>
+    <p>
+        <h4>Generator of Translations</h4>
+        A translation in classical mechanics moves the position of a particle from \(x\) to \(x + \epsilon\) and conserves momentum \(p\). In quantum mechanics, we tweak this definition to say that a translation moves the expected value of \(\langle X \rangle\) to \(\langle X \rangle + \epsilon\) and conserves the expected value of momentum \(\langle P \rangle\). If we define the original and translated states as \(|\psi\rangle\) and \(|\psi_{\epsilon}\rangle\), respectively, translation is written as 
+        \begin{align}
+        \langle \psi_{\epsilon}| X | \psi_{\epsilon} \rangle &= \langle \psi | X | \psi \rangle + \epsilon \\
+        \langle \psi_{\epsilon}| P | \psi_{\epsilon} \rangle &= \langle \psi| P | \psi \rangle
+        \end{align}
+        We can deconstruct this further if we define the translation operator, \(T(\epsilon)\), as 
+        \begin{align}
+        T(\epsilon)|\psi\rangle = |\psi_{\epsilon}\rangle
+        \end{align}
+        and rewrite the translation of the expected values of position and momentum as
+        \begin{align}
+        \langle \psi| T^{\dagger}(\epsilon) X T(\epsilon)| \psi \rangle &= \langle \psi | X | \psi \rangle + \epsilon \\
+        \langle \psi| T^{\dagger}(\epsilon) P T(\epsilon) | \psi \rangle &= \langle \psi| P | \psi \rangle
+        \end{align}
+        Immediate intuition would suggest the translation operator changes the state \(|x\rangle\) to \(|x + \epsilon\rangle\). However, the commutation relation 
+        \begin{align}
+        [X, P] = i \hbar
+        \end{align}
+        only guarantees the structure of the position relative to the momentum operator, without specifying a phase. Accounting for this, our naive solution becomes
+        \begin{align}
+        T(\epsilon)|x\rangle = e^{\frac{i \epsilon g(x)}{\hbar}} |x + \epsilon \rangle
+        \end{align}
+        which reduces to the form \(T(\epsilon)|x\rangle = |x + \epsilon \rangle\) when \(g(x)\) is a constant. 
+        Now, we can use \(T(\epsilon)|x\rangle\) to explicitly construct the operator in order \(\epsilon\). The Taylor series expansion of \(T(\epsilon)\) about \(\epsilon = 0\) 
+        \begin{align}
+        T(\epsilon) = I - \frac{i \epsilon}{\hbar}G + O(\epsilon^{2})
+        \end{align}
+        introduces the Hermitian generator of translations, \(G\). In other words, this generator is responsible for shifting the entire structure of the wavefunction by an infinitesimal amount. Another representation of the translation operator’s behavior is
+        \begin{align}
+        \langle x | T(\epsilon) | \psi \rangle = \psi(x - \epsilon) 
+        \end{align}
+        where \(\psi(x - \epsilon)\) has a Taylor series expansion to \(\epsilon\) order of 
+        \begin{align}
+        \psi(x - \epsilon) = \psi(x) - \frac{d \psi}{dx} \epsilon
+        \end{align}
+        Combining these two representations we arrive at the equality
+        \begin{align}
+        \langle x | I - \frac{i \epsilon}{\hbar}G | \psi \rangle &= \psi(x) - \frac{d \psi}{dx} \epsilon \\
+        \langle x | I | \psi \rangle - \langle x | \frac{i \epsilon}{\hbar}G | \psi \rangle &= \psi(x) - \frac{d \psi}{dx} \epsilon \\
+        \langle x | G | \psi \rangle &= -i \hbar \frac{d \psi}{dx}
+        \end{align}
+        From here, it is clear that \(G = P\) and our final form of the translation operator \(T(\epsilon)\) is 
+        \begin{align}
+        T(\epsilon) = I - \frac{i \epsilon}{\hbar} P
+        \end{align}
+        This means that the momentum operator tells you how the entire state changes under an infinitesimal translation by an infinitesimal amount. 
     
-    <h4>Derivation of the Principal Quantum Number \(n\)</h4>
-    The derivation of the principal quantum number leverages the continuity requirement to construct a system of two equations and two unknowns. We start with the second order differential equation 
-    \begin{equation}
-        \frac{d^{2} \psi}{dx^2} + \frac{2m}{\hbar^2}(E - V)\psi = 0
-    \end{equation}
-    Define \(\psi_{II}\) as the region where \(V(x) = 0\) and \(\psi_{I}, \psi_{III}\) as regions where \(V(x) = \infty\) and set up the system
-    \begin{align}
-        \frac{d^{2}}{dx^2}\psi_{I} + \frac{2m}{\hbar^2}(E - V)\psi_{I} = 0 \\
-        \frac{d^{2}}{dx^2}\psi_{II} + \frac{2m}{\hbar^2}(E)\psi_{II} = 0 \\
-        \frac{d^{2}}{dx^2}\psi_{III} + \frac{2m}{\hbar^2}(E - V)\psi_{III} = 0
-    \end{align}
-    If we define \(k = \sqrt{\frac{2mE}{\hbar^2}}\), the solution form of \(\psi_{II}\) is 
-    \begin{align}
-    \psi_{II} = Ae^{ikx} + Be^{-ikx}
-    \end{align}
-    Applying the continuity constraint at the boundaries of quadrant II and solving for \(k\) the trigonometric identity for \(\sin\) in terms of the \(e\)
-    \begin{align}
-    e^{-ikL} - e^{ikL} = -2i sin(kL) = 0
-    \end{align}
-    holds if \(k = \frac{n \pi}{L}\) for \(n = 0, \pm 1, \pm 2, \ldots\). Plugging in for \(k\) and using a known trigonometric solution form for \(\psi_{II}\) the solution for the wave function at \(x\) given an integral value \(n\) is 
-    \begin{align}
-    \psi_{n} &= (\frac{2}{L})^{\frac{1}{2}} \cos{(\frac{n \pi x}{L})} &\quad n &= 1, 3, 5, 7, \ldots \\
-    &= (\frac{2}{L})^{\frac{1}{2}} \sin{(\frac{n \pi x}{L})} &\quad n &= 2, 4, 6, \ldots \\
-    E_{n} &= \frac{\hbar^2 k_{n}^2}{2m} = \frac{\hbar^2 \pi^2 n^2}{2m L^2} 
-    \end{align}
-    From \(E_{n}\), the principal quantum number, \(n\), directly labels the total energy level of our system.
+        <h4>Translational Invariance</h4>
+        Translational invariance is when the expected value of a Hamiltonian is the same given an initial state \(|\psi\rangle\) and an infinitesimally translated state \(|\psi_{\epsilon}\rangle\). This is expressed as the equality
+        \begin{align}
+        \langle \psi | H | \psi \rangle = \langle \psi_{\epsilon} | H | \psi_{\epsilon} \rangle
+        \end{align}
+        Given that the generator of translation is the momentum operator \(P\), 
+        \begin{align}
+        \langle \psi | H | \psi \rangle &= \langle \psi_{\epsilon} | H | \psi_{\epsilon} \rangle \\ 
+        &= \langle \psi| T^{\dagger}(\epsilon) H T(\epsilon)| \psi \rangle \\
+        &= \langle \psi | (I + \frac{i \epsilon}{\hbar} P)^\dagger H (I - \frac{i \epsilon}{\hbar} P) | \psi \rangle \\
+        &= \langle \psi | (I + \frac{i \epsilon}{\hbar} P) H (I - \frac{i \epsilon}{\hbar} P) | \psi \rangle \\
+        &= \langle \psi | H | \psi \rangle + \frac{i \epsilon}{\hbar} \langle \psi | PH - HP | \psi \rangle \\
+        &= \langle \psi | H | \psi \rangle + \frac{i \epsilon}{\hbar} \langle \psi | [P, H] | \psi \rangle \\
+        \end{align}
+        For translational invariance to hold we require \([P, H] = 0\) which, by Ehrenfest’s theorem, tells us \(\langle \dot{P} \rangle\) = 0.
+    </p>
+<h3 style="text-align: left;"> 3. Rotational Symmetry \& Angular Momentum </h3>
+    <p>
+        <h4>The Eigenvalue Problem for \(L_z\)</h4>
+        For purposes of brevity we’re not going to perform a similar derivation for the generator of rotation (about the z-axis) \(L_{z}\). Instead we’ll directly state that the polar form of the generator in the coordinate basis can be represented as
+        \begin{align}
+        L_{z} \rightarrow -i \hbar \frac{\partial}{\partial \phi}
+        \end{align}
+        In the derivation of translation invariance we saw that invariance can be defined as an operator that commutes with the Hamiltonian. This principle can be extended to cases of rotational symmetry. Therefore, the goal of the eigenvalue problem for rotational invariance is to find state vectors that are eigenvectors of \(L_{z}\), which we know are eigenvectors \(H\) by the rotational invariance assumption.
+
+        <h4>Derivation of the Magnetic Quantum Number \(m\)</h4>
+        We start our derivation with the following constraints for the eigenfunction
+        \begin{align}
+        L_{z} |l_{z} \rangle &= l_{z} |l_{z}\rangle \\
+        \psi(\rho, 0) &= \psi(\rho, 2 \pi)
+        \end{align}
+        Using the first constraint, written in the coordinate basis, we can solve for the general form of the wave function in polar coordinates \(\psi_{l_{z}}(\rho, \phi)\)
+        \begin{align}
+        -i \hbar \frac{\partial \psi_{l_{z}}(\rho, \phi)}{\partial \phi} &= l_{z} \psi_{l_{z}}(\rho, \phi) \\
+        \frac{\partial \psi_{l_{z}}(\rho, \phi)}{\partial \phi} &= \frac{i l_{z}}{\hbar} \psi_{l_{z}}(\rho, \phi) \\
+        \psi_{l_{z}}(\rho, \phi) &= R(\rho) e^{\frac{i l_{z} \phi}{\hbar}} 
+        \end{align}
+        At this point, without imposing a Hermiticity constraint, any real or complex value on the interval \(0 \leq \phi < 2\pi\) can be normalized such that both real and complex eigenvalues can be considered for the solution. However, given that Hermitian operators only have real eigenvalues, we can’t have complex eigenvalues in our solution set. The second constraint of periodicity enforces single valuedness such that
+        \begin{align}
+        1 &= e^{\frac{2 \pi i l_{z}}{\hbar}}
+        \end{align}
+        The resulting equality requires
+        \begin{align}
+        l_{z} = m \hbar, &\quad m = 0, \pm 1, \pm 2, \ldots
+        \end{align}
+        Our derived integer value \(m\) is called the magnetic quantum number. At this point in the derivation, all we could say is that the angular momentum has a value \(m \hbar\). However, since this doesn't determine the radial component \(R(\rho)\) in \(\psi_{l_{z}}(\rho, \phi)\), we can only conclude that we are in the vector space \(V_{m}\) of states with angular momentum about the z-axis of \(m \hbar\). Therefore, our goal is to find simultaneous eigenfunctions, which both commute with the Hamiltonian, that’d help fully classify a unique state of our system. 
+
+        <h4>The Eigenvalue Problem for \(L^2\)</h4>
+        As mentioned at the end of the previous section, we want to find a simultaneous eigenfunction with the angular momentum about the z-axis to help uniquely classify our state. For this task, we first note that in a rotationally symmetric problem 
+        \begin{align}
+        [H, L_{i}] = 0 \text{ for } i = x, y, \text{ or } z 
+        \end{align}
+        and define the total angular momentum squared
+        \begin{align}
+        L^2 = L_{x}^{2} + L_{y}^{2} + L_{z}^{2}
+        \end{align}
+        where 
+        \begin{align}
+        [L^2, L_{i}] = 0
+        \end{align}
+        and 
+        \begin{align}
+        L^2 \rightarrow (- \hbar^2) (\frac{1}{\sin{\theta}} \frac{\partial}{\partial \theta} \sin{\theta} \frac{\partial}{\partial \theta} + \frac{1}{\sin{\theta}^{2}} \frac{\partial^{2}}{\partial \phi^{2}})
+        \end{align}
+        Given \([H, L_{i}] = 0\), 
+        \begin{align}
+        [H, L^2] = [H, L_{x}^2] + [H, L_{y}^2] + [H, L_{z}^2] = 0
+        \end{align}
+        so we can check off our requirement for \([H, L_{i}] = 0\) and \([H, L^2] = 0\). With this, we express the eigenvalue problem for \(L^2\) as finding simultaneous eigenfunctions for \(L^2\)  and \(L_{z}\) such that 
+        \begin{align}
+        L^2 |\alpha \beta \rangle &= \alpha |\alpha \beta \rangle \\
+        L_{z} |\alpha \beta \rangle &= \beta |\alpha \beta \rangle 
+        \end{align}
+        where \(|\alpha \beta\rangle\) is the simultaneous eigenfunction with eigenvalues for total angular momentum and angular momentum about the z-axis of  \(\alpha\) and \(\beta\), respectively. 
+        At this point, it’s worth clearly stating the importance of having the Hamiltonian commute with both operators, total angular momentum and angular momentum about an axis. The values are conserved, simultaneously measurable, and grounded in the energy spectrum of its Hamiltonian.
+
+        <h4>Derivation of \(l\) and Allowed \(m\)</h4>
+        We start this derivation by defining ladder operators
+        \begin{align}
+        L_{\pm} = L_{x} \pm i L_{y} 
+        \end{align}
+        such that
+        \begin{align}
+        [L_{z}, L_{\pm}] &= \pm \hbar L_{\pm}
+        \end{align}
+        Given the relation \([L^2, L_{i}] = 0\), by definition \([L^2, L_{\pm}] = 0\). This commutation relation allows us to step through different angular momenta, with step size \(\hbar\), while staying under the umbrella of a single total angular momentum value. Using our original eigenfunction formulations for \(L^2\) and \(L_{z}\)
+        \begin{align}
+        \langle \alpha \beta | L^2 - L_{z}^2 | \alpha \beta \rangle &= \langle \alpha \beta | L_{x}^2 + L_{y}^2 | \alpha \beta \rangle \\
+        \langle \alpha \beta | L^2 - L_{z}^2 | \alpha \beta \rangle &= \langle \alpha \beta | \alpha - \beta^2 | \alpha \beta \rangle 
+        \end{align}
+        and given that \(L_{x}^2 + L_{y}^2 \geq 0\) we can express the relation between the z component of angular momentum and total angular momentum as 
+        \begin{align}
+        \alpha - \beta^2 &\geq 0 \\
+        \alpha &\geq \beta^2
+        \end{align}
+        In other words, this tells us there must be some minimum, \(\beta_{min}\) and maximum, \(\beta_{max}\) z component of angular momentum given a measure of total angular momentum. Operationally, this means if we’re in a state with \(\beta_{max}\) then incrementing the state with a ladder operator, \(L_{+}\) will lead to an invalid state for the system, expressed as
+        \begin{align}
+        L_{+}|\alpha \beta_{max}\rangle = 0
+        \end{align}
+        Similarly, decrementing a state \(|\alpha \beta_{min} \rangle\) with \(L_{-}\) leads to an invalid state such that 
+        \begin{align}
+        L_{-}|\alpha \beta_{min}\rangle = 0
+        \end{align}
+        A useful property for this derivation is that applying a ladder operator to an invalid state does not update to a valid state. Therefore, we could use the ladder operators at extreme \(\beta\) values to construct an equality that we can use to solve for \(\alpha\) and \(\beta\)  
+        \begin{align}
+        L_{-}L_{+}|\alpha \beta_{max}\rangle &= L^2 - L_{z}^2 - \hbar L_{z} |\alpha \beta_{max}\rangle = 0 \\
+        L_{+}L_{-}|\alpha \beta_{min}\rangle &= L^2 - L_{z}^2 + \hbar L_{z} |\alpha \beta_{min}\rangle = 0
+        \end{align}
+        Solving each of these 
+        \begin{align}
+        \alpha = \beta_{max}(\beta_{max} + \hbar) \\
+        \alpha = \beta_{min}(\beta_{min} - \hbar) 
+        \end{align}
+        and comparing them to one another we find
+        \begin{align}
+        \beta_{min} = -\beta_{max}
+        \end{align}
+        Given this relation and the operational function of ladder operators we know there must be some discrete amount, \(k\) of steps between \(\beta_{min}\) and \(\beta_{max}\) of step size \(\hbar\) such that  
+        \begin{align}
+        \beta_{max} - \beta_{min} &= 2 \beta_{max} = \hbar k \\
+        \beta_{max} &= \frac{\hbar k}{2} &\quad k = 0, 1, 2, \ldots 
+        \end{align}
+        Finally, using our expression for \(\beta_{max}\) and derivation of \(L_{-}L_{+}|\alpha \beta_{max}\rangle\) we find a general expression for \(\alpha\) with respect to \(k\)
+        \begin{align}
+        \alpha = (\beta_{max})(\beta_{max} + \hbar) = \hbar^2(\frac{k}{2})(\frac{k}{2} + 1)
+        \end{align}
+        Since \(\alpha\), \(\beta\) represent the eigenvalues of \(L^2\), \(L_{z}\), respectively, the integral values of \(m\) as derived in Section 3.2 picks out the even integral values of \(k\) 
+        \begin{align}
+        \beta_{max} &= \frac{\hbar k}{2}, &\quad k = 0, 2, 4, \ldots \\
+        \alpha &= \hbar^2 (\frac{k}{2})(\frac{k}{2} + 1), &\quad k = 0, 2, 4, \ldots 
+        \end{align}
+        Defining \(l = k/2\) for \(k = 0, 2, 4, \ldots\) means we can use \(l\) to rewrite the above equalities as 
+        \begin{align}
+        \beta_{max} &= \hbar (l), &\quad l = 0,1,2,\ldots\\
+        \beta_{min} &= \hbar (-l), &\quad l = 0,1,2,\ldots\\
+        \alpha &= \hbar^2(l)(l+1), &\quad l = 0,1,2,\ldots\\
+        \end{align}
+        This tells us that the bounds of \(\beta\) which represent the eigenvalues of \(L_{z}\), or the magnetic quantum number as defined in Section 3.2, are 
+        \begin{align}
+        l \geq |m| 
+        \end{align}
+        We can rewrite the overall result as 
+        \begin{align}
+        L^2 |lm \rangle &= l(l + 1) \hbar^2 |lm \rangle, &\quad l &= 0,1,2,\ldots\\
+        L_{z} |lm \rangle &= m \hbar |lm \rangle, &\quad m &= l, l-1, \ldots, -l 
+        \end{align}
+    </p>
+<h3 style="text-align: left;"> 4. Reviewing the Quantum Numbers </h3>
+    <p>
+        <h4>Conceptual Review of \(n\), \(l\), and \(m\)</h4>
+        At this point, we’ll take a moment to review the three quantum numbers \(n\), \(l\), and \(m\) that we’ve derived so far. The principal quantum number, \(n\), labels the total energy in a system; the angular momentum quantum number, \(l\), labels the total angular momentum in a system; the magnetic quantum number, \(m\), labels the \(z\) component of angular momentum and is restricted to \(l \geq |m|\). In a similar fashion to \(l\) defining the range of allowable \(m\) values, \(n\) defines a range of allowable \(l\) values. We’re not going to perform the entire derivation here but rather we’ll state the important outcome for application to atomic orbitals.
+        In solving the eigenvalue problem for the hydrogen atom, the binding energy, \(E = -W\), represents the amount of energy it’d take to free an electron from the atom. The energy levels are found in terms of \(l\) as
+        \begin{align}
+        E = -W = \frac{-m e^{4}}{2 \hbar^2 (k + l + 1)^2}, &\quad k = 0, 1, 2, \ldots: l = 0, 1, 2, \ldots
+        \end{align} 
+        and rewritten as 
+        \begin{align}
+        E_{n} &= \frac{-m e^{4}}{2 \hbar^2 n^2}, &\quad n = 1, 2, 3, \ldots \\
+        n &= k + l + 1
+        \end{align}
+        In other words, the allowed values of \(l\) are \(l = 0, 1, 2, \ldots , n - 1\).
+    </p>
+
+<h3 style="text-align: left;"> Conclusion </h3>
+    <p>
+        As stated in the introduction, the motivation for writing this blog is to review quantum numbers (and provide myself material for review in the future) for a complete understanding of atomic orbital specifications. The principal quantum number, \(n\), specifies the atomic shell which groups orbitals by the total energy associated with \(n\); orbital angular momentum quantum number, \(l\), specifies the subshells of orbitals with shared angular momentum; the magnetic quantum number \(m\) specifies individual orbitals within subshells based on their angular momentum about an axis of choice.
+    </p>
     
-    <h3 style="text-align: left;"> An Introduction to Invariance: Translational Invariance \& Conservation of Momentum </h3>
-    <h4>Generator of Translations</h4>
-    A translation in classical mechanics moves the position of a particle from \(x\) to \(x + \epsilon\) and conserves momentum \(p\). In quantum mechanics, we tweak this definition to say that a translation moves the expected value of \(\langle X \rangle\) to \(\langle X \rangle + \epsilon\) and conserves the expected value of momentum \(\langle P \rangle\). If we define the original and translated states as \(|\psi\rangle\) and \(|\psi_{\epsilon}\rangle\), respectively, translation is written as 
-    \begin{align}
-    \langle \psi_{\epsilon}| X | \psi_{\epsilon} \rangle &= \langle \psi | X | \psi \rangle + \epsilon \\
-    \langle \psi_{\epsilon}| P | \psi_{\epsilon} \rangle &= \langle \psi| P | \psi \rangle
-    \end{align}
-    We can deconstruct this further if we define the translation operator, \(T(\epsilon)\), as 
-    \begin{align}
-    T(\epsilon)|\psi\rangle = |\psi_{\epsilon}\rangle
-    \end{align}
-    and rewrite the translation of the expected values of position and momentum as
-    \begin{align}
-    \langle \psi| T^{\dagger}(\epsilon) X T(\epsilon)| \psi \rangle &= \langle \psi | X | \psi \rangle + \epsilon \\
-    \langle \psi| T^{\dagger}(\epsilon) P T(\epsilon) | \psi \rangle &= \langle \psi| P | \psi \rangle
-    \end{align}
-    Immediate intuition would suggest the translation operator changes the state \(|x\rangle\) to \(|x + \epsilon\rangle\). However, the commutation relation 
-    \begin{align}
-    [X, P] = i \hbar
-    \end{align}
-    only guarantees the structure of the position relative to the momentum operator, without specifying a phase. Accounting for this, our naive solution becomes
-    \begin{align}
-    T(\epsilon)|x\rangle = e^{\frac{i \epsilon g(x)}{\hbar}} |x + \epsilon \rangle
-    \end{align}
-    which reduces to the form \(T(\epsilon)|x\rangle = |x + \epsilon \rangle\) when \(g(x)\) is a constant. 
-    Now, we can use \(T(\epsilon)|x\rangle\) to explicitly construct the operator in order \(\epsilon\). The Taylor series expansion of \(T(\epsilon)\) about \(\epsilon = 0\) 
-    \begin{align}
-    T(\epsilon) = I - \frac{i \epsilon}{\hbar}G + O(\epsilon^{2})
-    \end{align}
-    introduces the Hermitian generator of translations, \(G\). In other words, this generator is responsible for shifting the entire structure of the wavefunction by an infinitesimal amount. Another representation of the translation operator’s behavior is
-    \begin{align}
-    \langle x | T(\epsilon) | \psi \rangle = \psi(x - \epsilon) 
-    \end{align}
-    where \(\psi(x - \epsilon)\) has a Taylor series expansion to \(\epsilon\) order of 
-    \begin{align}
-    \psi(x - \epsilon) = \psi(x) - \frac{d \psi}{dx} \epsilon
-    \end{align}
-    Combining these two representations we arrive at the equality
-    \begin{align}
-    \langle x | I - \frac{i \epsilon}{\hbar}G | \psi \rangle &= \psi(x) - \frac{d \psi}{dx} \epsilon \\
-    \langle x | I | \psi \rangle - \langle x | \frac{i \epsilon}{\hbar}G | \psi \rangle &= \psi(x) - \frac{d \psi}{dx} \epsilon \\
-    \langle x | G | \psi \rangle &= -i \hbar \frac{d \psi}{dx}
-    \end{align}
-    From here, it is clear that \(G = P\) and our final form of the translation operator \(T(\epsilon)\) is 
-    \begin{align}
-    T(\epsilon) = I - \frac{i \epsilon}{\hbar} P
-    \end{align}
-    This means that the momentum operator tells you how the entire state changes under an infinitesimal translation by an infinitesimal amount. 
-    
-    <h4>Translational Invariance</h4>
-    Translational invariance is when the expected value of a Hamiltonian is the same given an initial state \(|\psi\rangle\) and an infinitesimally translated state \(|\psi_{\epsilon}\rangle\). This is expressed as the equality
-    \begin{align}
-    \langle \psi | H | \psi \rangle = \langle \psi_{\epsilon} | H | \psi_{\epsilon} \rangle
-    \end{align}
-    Given that the generator of translation is the momentum operator \(P\), 
-    \begin{align}
-    \langle \psi | H | \psi \rangle &= \langle \psi_{\epsilon} | H | \psi_{\epsilon} \rangle \\ 
-    &= \langle \psi| T^{\dagger}(\epsilon) H T(\epsilon)| \psi \rangle \\
-    &= \langle \psi | (I + \frac{i \epsilon}{\hbar} P)^\dagger H (I - \frac{i \epsilon}{\hbar} P) | \psi \rangle \\
-    &= \langle \psi | (I + \frac{i \epsilon}{\hbar} P) H (I - \frac{i \epsilon}{\hbar} P) | \psi \rangle \\
-    &= \langle \psi | H | \psi \rangle + \frac{i \epsilon}{\hbar} \langle \psi | PH - HP | \psi \rangle \\
-    &= \langle \psi | H | \psi \rangle + \frac{i \epsilon}{\hbar} \langle \psi | [P, H] | \psi \rangle \\
-    \end{align}
-    For translational invariance to hold we require \([P, H] = 0\) which, by Ehrenfest’s theorem, tells us \(\langle \dot{P} \rangle\) = 0.    
-</p>
 </div>
 </body>
 </html>
