@@ -238,10 +238,10 @@
         L_{z} |\alpha \beta \rangle &= \beta |\alpha \beta \rangle 
         \end{align}
         where \(|\alpha \beta\rangle\) is the simultaneous eigenfunction with eigenvalues for total angular 
-        momentum and angular momentum about the z-axis of  \(\alpha\) and \(\beta\), respectively. 
-        At this point, it’s worth clearly stating the importance of having the Hamiltonian commute with both 
-        operators, total angular momentum and angular momentum about an axis. The values are conserved, simultaneously 
-        measurable, and grounded in the energy spectrum of its Hamiltonian.
+        momentum and angular momentum about the z-axis of \(\alpha\) and \(\beta\), respectively. 
+        The importance of having the Hamiltonian commute with both operators, total angular momentum 
+        and angular momentum about an axis. The values are conserved, simultaneously measurable, and 
+        grounded in the energy spectrum of its Hamiltonian.
 
         <h4>Derivation of \(l\) and Allowed \(m\)</h4>
         We start this derivation by defining ladder operators
@@ -267,8 +267,8 @@
         \alpha &\geq \beta^2
         \end{align}
         In other words, this tells us there must be some minimum, \(\beta_{min}\) and maximum, \(\beta_{max}\) z component 
-        of angular momentum given a measure of total angular momentum. Operationally, this means if we’re in a state 
-        with \(\beta_{max}\) then incrementing the state with a ladder operator, \(L_{+}\) will lead to an invalid state 
+        of angular momentum given a measure of total angular momentum. Operationally, if we’re in a state 
+        with \(\beta_{max}\), incrementing the state with a ladder operator, \(L_{+}\) leads to an invalid state 
         for the system, expressed as
         \begin{align}
         L_{+}|\alpha \beta_{max}\rangle = 0
@@ -277,9 +277,8 @@
         \begin{align}
         L_{-}|\alpha \beta_{min}\rangle = 0
         \end{align}
-        A useful property for this derivation is that applying a ladder operator to an invalid state does not 
-        update to a valid state. Therefore, we could use the ladder operators at extreme \(\beta\) values to construct 
-        an equality that we can use to solve for \(\alpha\) and \(\beta\)  
+        Applying a ladder operator to an invalid state does not update to a valid state. Therefore, 
+        the ladder operators are applied at \(\beta\) extrema to construct two equalities
         \begin{align}
         L_{-}L_{+}|\alpha \beta_{max}\rangle &= L^2 - L_{z}^2 - \hbar L_{z} |\alpha \beta_{max}\rangle = 0 \\
         L_{+}L_{-}|\alpha \beta_{min}\rangle &= L^2 - L_{z}^2 + \hbar L_{z} |\alpha \beta_{min}\rangle = 0
@@ -293,19 +292,20 @@
         \begin{align}
         \beta_{min} = -\beta_{max}
         \end{align}
-        Given this relation and the operational function of ladder operators we know there must be some 
-        discrete amount, \(k\) of steps between \(\beta_{min}\) and \(\beta_{max}\) of step size \(\hbar\) such that  
+        Given this relation and the operational function of ladder operators, we know there must be some 
+        discrete amount, \(k\), of steps between \(\beta_{min}\) and \(\beta_{max}\) with step size \(\hbar\) such that  
         \begin{align}
         \beta_{max} - \beta_{min} &= 2 \beta_{max} = \hbar k \\
         \beta_{max} &= \frac{\hbar k}{2} &\quad k = 0, 1, 2, \ldots 
         \end{align}
-        Finally, using our expression for \(\beta_{max}\) and derivation of \(L_{-}L_{+}|\alpha \beta_{max}\rangle\) we find 
-        a general expression for \(\alpha\) with respect to \(k\)
+        Finally, using our expression for \(\beta_{max}\) and derivation of \(L_{-}L_{+}|\alpha \beta_{max}\rangle\) 
+        a general expression for \(\alpha\) with respect to \(k\) is
         \begin{align}
         \alpha = (\beta_{max})(\beta_{max} + \hbar) = \hbar^2(\frac{k}{2})(\frac{k}{2} + 1)
         \end{align}
-        Since \(\alpha\), \(\beta\) represent the eigenvalues of \(L^2\), \(L_{z}\), respectively, the integral 
-        values of \(m\) as derived in Section 3.2 picks out the even integral values of \(k\) 
+        Since \(\alpha\) and \(\beta\) represent the eigenvalues of \(L^2\) and \(L_{z}\), respectively, the integral 
+        values of \(m\) pick out the even integral values of \(k\) to avoid non-integer values as required our \(m\) 
+        derivation above
         \begin{align}
         \beta_{max} &= \frac{\hbar k}{2}, &\quad k = 0, 2, 4, \ldots \\
         \alpha &= \hbar^2 (\frac{k}{2})(\frac{k}{2} + 1), &\quad k = 0, 2, 4, \ldots 
@@ -316,12 +316,11 @@
         \beta_{min} &= \hbar (-l), &\quad l = 0,1,2,\ldots\\
         \alpha &= \hbar^2(l)(l+1), &\quad l = 0,1,2,\ldots\\
         \end{align}
-        This tells us that the bounds of \(\beta\) which represent the eigenvalues of \(L_{z}\), or the magnetic 
-        quantum number as defined in Section 3.2, are 
+        The bounds of \(\beta\) which represent the eigenvalues of \(L_{z}\), or the magnetic quantum number, are
         \begin{align}
         l \geq |m| 
         \end{align}
-        We can rewrite the overall result as 
+        Therefore, we can rewrite the overall result as 
         \begin{align}
         L^2 |lm \rangle &= l(l + 1) \hbar^2 |lm \rangle, &\quad l &= 0,1,2,\ldots\\
         L_{z} |lm \rangle &= m \hbar |lm \rangle, &\quad m &= l, l-1, \ldots, -l 
